@@ -1,0 +1,365 @@
+#coding: utf-8
+
+import csv
+
+fichier="okrestos.csv"
+
+f1=open(fichier)
+lignes=csv.reader(f1)
+next(lignes)
+
+endroits=[ "▸ Montréal",
+ "Ahuntsic-Cartierville",
+ "Anjou-St-Léonard",
+ "Avenue Duluth",
+ "Boul. St-Laurent/Main",
+ "Centre-ville",
+ "Côte-des-Neiges",
+ "Côte-Saint-Luc",
+ "Griffintown",
+ "Hochelaga-Maisonneuve",
+ "Île des Soeurs",
+ "Lachine",
+ "Le Plateau-Mont-Royal",
+ "Le Sud Ouest",
+ "Le Village/Centre Sud",
+ "Mile-End",
+ "Mile-Ex",
+ "Monkland Village",
+ "Montréal-Est",
+ "Montréal-Nord",
+ "Montréal-Ouest",
+ "Notre-Dame-de-Grâce (NDG)",
+ "Nouveau Rosemont",
+ "Outremont",
+ "Parc-des-Iles",
+ "Parc-Extension",
+ "Petite-Bourgogne",
+ "Petite-Italie",
+ "Pointe St-Charles",
+ "Quartier Chinois",
+ "Quartier des Spectacles",
+ "Quartier Latin",
+ "RDP-Pointe-aux-Trembles",
+ "Rosemont-Petite-Patrie",
+ "Rue Crescent",
+ "Rue Prince-Arthur",
+ "Rue St-Denis",
+ "Saint-Henri",
+ "Tétreaultville-Mercier-Est",
+ "Verdun/Lasalle",
+ "Vieux-Montréal",
+ "Vieux-Rosemont",
+ "Ville Mont-Royal",
+ "Ville Saint-Laurent",
+ "Ville-Émard",
+ "Villeray-Saint-Michel",
+ "Westmount",
+ "▸ Ouest-de-l'Île (Montréal)"
+ "Baie-d Urfe",
+ "Beaconsfield",
+ "Dollard-des-Ormeaux",
+ "Dorval",
+ "Île Perrot/Pincourt",
+ "Kirkland",
+ "L'Île-Bizard-Sainte-Geneviève",
+ "Pierrefonds-Roxboro",
+ "Pointe-Claire",
+ "Sainte-Anne-de-Bellevue",
+ "Salaberry-de-Valleyfield",
+ "Vaudreuil-Dorion",
+ "▸ Laval",
+ "Auteuil",
+ "Centropolis",
+ "Chomedey",
+ "Duvernay",
+ "Fabreville",
+ "Laval-des-Rapides",
+ "Laval-Ouest",
+ "Laval-sur-le-Lac",
+ "Pont Viau",
+ "Saint-Francois",
+ "Saint-Vincent-de-Paul",
+ "Sainte-Dorothée",
+ "Sainte-Rose",
+ "Vieux Sainte-Rose",
+ "Vimont",
+ "▸ Laurentides",
+ "Blainville",
+ "Bois-des-Filion",
+ "Boisbriand",
+ "Deux-Montagnes",
+ "Lachute",
+ "Lorraine",
+ "Mirabel",
+ "Mont-Laurier",
+ "Mont-Tremblant",
+ "Morin-Heights",
+ "Prévost",
+ "Rosemère",
+ "Saint-Eustache",
+ "Saint-Jérôme",
+ "Saint-Sauveur",
+ "Sainte-Adèle",
+ "Sainte-Agathe-des-Monts",
+ "Sainte-Anne-des-Plaines",
+ "Sainte-Marthe-sur-le-Lac",
+ "Sainte-Thérèse",
+ "Val-David",
+ "Val-Morin",
+ "▸ Rive-Sud (Montréal)",
+ "Beloeil",
+ "Boucherville",
+ "Brossard",
+ "Candiac",
+ "Chambly",
+ "Châteauguay",
+ "Delson",
+ "Greenfield Park",
+ "Kahnawake",
+ "La Prairie",
+ "Léry",
+ "Longueuil",
+ "McMasterville",
+ "Mercier",
+ "Mont-Saint-Grégoire",
+ "Mont-Saint-Hilaire",
+ "Otterburn Park",
+ "Quartier Dix30",
+ "Richelieu",
+ "Saint-Basile-le-Grand",
+ "Saint-Bruno-de-Montarville",
+ "Saint-Constant",
+ "Saint-Hubert",
+ "Saint-Hyacinthe",
+ "Saint-Lambert",
+ "Sainte-Catherine",
+ "Sainte-Julie",
+ "St-Jean-Sur-Richelieu",
+ "Varennes",
+ "Verchères",
+ "Vieux Longueuil",
+ "▸ Lanaudière",
+ "Berthierville",
+ "Charlemagne",
+ "Joliette",
+ "L'Assomption",
+ "L'Épiphanie",
+ "Lavaltrie",
+ "Le Gardeur",
+ "Mascouche",
+ "Notre-Dame-des-Prairies",
+ "Rawdon",
+ "Repentigny",
+ "Saint-Charles-Borromée",
+ "Saint-Lin-Laurentides",
+ "St-Calixte",
+ "Terrebonne/Lachenaie",
+ "Trois-Rivières",
+ "Vieux-Terrebonne",
+ "▸ Cantons-de-l'Est / ESTRIE",
+ "Asbestos",
+ "Brome-Missisquoi",
+ "Bromont",
+ "Coaticook",
+ "Drummondville",
+ "Eastman",
+ "Farnham",
+ "Granby",
+ "Haut Saint-François",
+ "Magog",
+ "Mégantic",
+ "Sherbrooke",
+ "Val Saint-François"]
+ 
+cuisines=[
+    "Afghane",
+  "Africaine",
+  "Algerienne",
+  "Allemande",
+  "Américaine",
+  "Argentine",
+  "Arménienne",
+  "Asiatique",
+  "Australienne",
+  "Autrichienne",
+  "Bagels",
+  "Bar à jus et smoothies",
+  "Barbecue-BBQ",
+  "Basque",
+  "Belge",
+  "Bio",
+  "Bistro",
+  "Boréale",
+  "Brésilienne",
+  "Britannique Moderne",
+  "Burgers",
+  "Cabane à sucre",
+  "Cacher",
+  "Café",
+  "Cajun",
+  "Californienne",
+  "Cambodgienne",
+  "Canadienne",
+  "Caraïbéenne",
+  "Casse-Croute",
+  "Chilienne",
+  "Chinoise",
+  "Chocolaterie",
+  "Colombienne",
+  "Contemporaine/Moderne",
+  "Continentale",
+  "Coréenne",
+  "Couscous",
+  "Créative",
+  "Crème glacée",
+  "Créole",
+  "Crêperie",
+  "Déjeuner",
+  "Deli",
+  "Desserts et Sucreries",
+  "Dominicaine",
+  "Du Terroir",
+  "Éclectique",
+  "Égyptienne",
+  "Espagnole",
+  "Éthiopienne",
+  "Exotique",
+  "Fish & Chips",
+  "Fondue",
+  "Française",
+  "Fruits de mer/Poissons",
+  "Fumoir-Smokehouse",
+  "Fusion",
+  "Géorgienne",
+  "Gibier Sauvage",
+  "Grecque",
+  "Grillades",
+  "Grilled Cheese",
+  "Halal",
+  "Hawaïenne",
+  "Hongroise",
+  "Indienne",
+  "Indonésiene",
+  "Internationale",
+  "Iranienne",
+  "Iraqienne",
+  "Irlandaise",
+  "Italienne",
+  "Jamaïcaine",
+  "Japonaise",
+  "Juive",
+  "Lao",
+  "Latino Américaine",
+  "Libanaise",
+  "Maison de thé",
+  "Marché",
+  "Marocaine",
+  "Mauritanienne",
+  "Méditerranéenne",
+  "Mexicaine",
+  "Moléculaire",
+  "Moules",
+  "Moyen Orientale",
+  "Nuevo Latino",
+  "Pakistanaise",
+  "Palestinienne",
+  "Pâtes",
+  "Pâtisserie",
+  "Persane",
+  "Péruvienne",
+  "Philippine",
+  "Pizza",
+  "Poke Bowl",
+  "Polonaise",
+  "Polynésienne",
+  "Portugaise",
+  "Poutine",
+  "Pub Food",
+  "Raclette",
+  "Ramen",
+  "Réconfort",
+  "Rôtisserie",
+  "Roumaine",
+  "Russe",
+  "Salades",
+  "Salvadorienne",
+  "Sandwichs",
+  "Santé",
+  "Smoked Meat",
+  "Sri Lankaise",
+  "Steakhouse",
+  "Suisse",
+  "Sushi",
+  "Syrienne",
+  "Szechuannaise",
+  "Tapas",
+  "Tartare",
+  "Tchèque",
+  "Thaïlandaise",
+  "Tibétaine",
+  "Trinidad",
+  "Tunisienne",
+  "Turque",
+  "Ukrénienne",
+  "Végétalienne",
+  "Végétarienne",
+  "Vénézuélienne",
+  "Vietnamienne"]
+
+print("Bonjour ! Je suis Nomnom, le petit robot qui vous aide si vous avez faim.")
+print("Est-ce que vous avez faim ?")
+q1 = str(input("['o'|'n'] "))
+
+if q1=='o':
+    print("Je vais vous aider à trouver où aller manger alors ! ^o^")
+    #Suite de tout
+if q1=='n':
+    print("Je suppose que je ne peux pas vous aider... N'hésitez pas à venir me voir si vous avez faim.")
+
+#En travaux
+print("*"*40)
+print("Dans quel endroit voulez vous aller manger ? \n Choisissez dans cette liste le ou les arrondissement/quartier/ville où vous voulez manger et tapez le ou les ci-dessous :")
+print(endroits)
+q2=str(input("-->"))
+for unit in endroits:
+    if q2==unit:
+        #Do Stuff
+        print("*"*40)
+        print("D'accord ! Et qu'est-ce que vous manger ?")
+        q3=str(input("Nommez une cuisine ou un plat: "))
+        for ligne in lignes:
+            # for ligne[3]=q2:
+            if q3==ligne[6]:
+                print(ligne)
+            if q3==ligne[7]:
+                print(ligne)
+            if q3==ligne[8]:
+                print(ligne)
+            if q3==ligne[9]:
+                print(ligne)
+            if q3==ligne[10]:
+                print(ligne)
+            if q3==ligne[11]:
+                print(ligne)
+            if q3==ligne[12]:
+                print(ligne)
+            # else:
+            #     print("Je n'ai pas compris ce que vous avez écrit. Réessayez ?")
+    # elif q2 != unit:
+    #     print("Je suis désolé, je n'ai pas compris ce que vous m'avez dit.")
+        
+
+# print("*"*40)
+# print("Est-ce que vous souhaitez des renseignements sur un restaurant en particulier ? \n Je peux essayer de vous le trouver.")
+# qr=str(input("Entrez son nom avec en commençant tous les mots par des majuscules -->"))
+
+# if qr==
+
+# if qr!=:
+#     print("Je suis désolé, je n'ai pas trouvé ce restaurant.")
+
+
+
+
+
